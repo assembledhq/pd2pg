@@ -187,10 +187,7 @@ class PG2PD
       service_id: i["service"] && i["service"]["id"],
       escalation_policy_id: i["escalation_policy"] && i["escalation_policy"]["id"],
       trigger_summary_subject: i["summary"],
-      trigger_summary_description: i["description"],
-      # this column is no longer supported in Pagerduty's v2 API
-      # we're leaving it in for backwards compatibility.
-      trigger_type: "DEPRECATED"
+      trigger_summary_description: i["description"]
     }
   end
 

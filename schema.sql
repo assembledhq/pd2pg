@@ -7,8 +7,7 @@ create table incidents (
   service_id varchar,
   escalation_policy_id varchar,
   trigger_summary_subject varchar,
-  trigger_summary_description varchar,
-  trigger_type varchar
+  trigger_summary_description varchar
 );
 
 create table log_entries (
