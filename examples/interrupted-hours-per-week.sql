@@ -3,14 +3,11 @@
 -- escalation policy. Note that escalation policies are whitelisted in
 -- the query.
 
-select * from crosstab(
-
 -- Data: {week, escalation policy name, interrupted hours count}.
 -- Interrupted hours are defined as {clock hour, person} tuples for
 -- which the person received >= 1 notification during the clock hour.
 -- Counts are per escalation-policy, so if 1 person receives pages for
 -- 2 EPs during the same hour that will count as 2 interrupted hours.
-$SQL$
 with notifications as (
 select
   log_entries.created_at,
@@ -51,22 +48,4 @@ group by
   escalation_policy_name
 order by
   week desc
-$SQL$,
-
--- Escalation policy names.
-$SQL$
-select unnest(array[
-  'Systems',
-  'Databases',
-  'API'
-])
-$SQL$
-
--- Column definitions: week + escalation policy names.
-) as ct(
-  week text,
-  systems int,
-  databases int,
-  api int
-)
 ;
