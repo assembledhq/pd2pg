@@ -19,7 +19,7 @@ select
 from
   log_entries
 where
-  type = 'notify'
+  type = 'notify_log_entry'
 ),
 
 interruptions as (
