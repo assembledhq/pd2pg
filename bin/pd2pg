@@ -187,7 +187,8 @@ class PG2PD
       service_id: i["service"] && i["service"]["id"],
       escalation_policy_id: i["escalation_policy"] && i["escalation_policy"]["id"],
       trigger_summary_subject: i["summary"],
-      trigger_summary_description: i["description"]
+      trigger_summary_description: i["description"],
+      urgency: i["urgency"]
     }
   end
 
