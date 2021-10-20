@@ -29,6 +29,7 @@ from
   incidents
 where
   notifications.incident_id = incidents.id
+  and incidents.urgency = 'high'
 group by
   hour,
   escalation_policy_id
