@@ -13,9 +13,9 @@ from
   incidents,
   services
 where
-  users.email = 'mark@stripe.com' and
+  users.email = 'john@assembledhq.com' and
   log_entries.user_id = users.id and
-  log_entries.type = 'notify' and
+  log_entries.type = 'notify_log_entry' and
   log_entries.created_at > now() - '1 week'::interval and
   incidents.id = log_entries.incident_id and
   incidents.service_id = services.id
