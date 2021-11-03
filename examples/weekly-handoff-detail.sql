@@ -5,6 +5,8 @@
 -- incident, how many off those hours were off-hours, how many people were
 -- interrupted by the incident, and which people.
 
+-- The week of the report is hardcoded.
+
 with notifications as (
 select
   log_entries.id,
@@ -38,8 +40,7 @@ select
   count(distinct username || interrupted_hour) filter (where off_hour) as interrupted_off_hours,
   count(distinct username) as interrupted_people_count,
   string_agg(distinct username, ', ') as interrupted_people,
-  min(interrupted_hour) as first_interrupted_hour,
-  max(interrupted_hour) as last_interrupted_hour
+  min(interrupted_hour) as first_interrupted_hour
 from
   notifications
 group by
