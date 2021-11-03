@@ -37,7 +37,6 @@ group by
 
 select
   to_char(date_trunc('week', interruptions.hour), 'YYYY-MM-DD') as week,
-  escalation_policies.name as escalation_policy_name,
   sum(interruptions.interrupted_users) as interrupted_hours
 from
   interruptions,
@@ -45,8 +44,7 @@ from
 where
   interruptions.escalation_policy_id = escalation_policies.id
 group by
-  week,
-  escalation_policy_name
+  week
 order by
-  week desc
+  week asc
 ;
