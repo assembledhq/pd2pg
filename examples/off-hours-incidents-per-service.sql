@@ -10,6 +10,7 @@ from
   incidents
 where
   incidents.created_at > now()-'28 days'::interval
+  and incidents.urgency = 'high'
 )
 
 select
